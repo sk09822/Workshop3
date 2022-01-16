@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.blz.workshop.HotelReservationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-01-16T11:17:36" hostname="DESKTOP-DN56027" time="0.132">
+<testsuite name="com.blz.workshop.HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-16T11:24:44" hostname="DESKTOP-DN56027" time="0.044">
   <properties/>
-  <testcase name="whenHotelAdded_ToSystem_ShouldGetAdded()" classname="com.blz.workshop.HotelReservationTest" time="0.036"/>
-  <testcase name="whenGivenDateRangeShouldReturnCheapestHotels()" classname="com.blz.workshop.HotelReservationTest" time="0.056"/>
-  <testcase name="whenGivenHotelAdded_ShouldAddWeekendPrices()" classname="com.blz.workshop.HotelReservationTest" time="0.004"/>
-  <testcase name="whenGivenDateRangeShouldReturnCheapestHotel()" classname="com.blz.workshop.HotelReservationTest" time="0.005"/>
-  <system-out><![CDATA[Bridgewood 200
-Lakewood 200
-Lakewood 220
-]]></system-out>
+  <testcase name="whenHotelAddedToSystemRatingShouldGetAdded()" classname="com.blz.workshop.HotelReservationTest" time="0.044"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
