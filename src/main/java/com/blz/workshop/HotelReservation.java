@@ -18,7 +18,7 @@ public class HotelReservation {
         this.hotels = new ArrayList<Hotel>();
     }
 
-    public void add(Hotel hotel) // add hotel.
+    public void add(Hotel hotel) //add hotel.
     {
         this.hotels.add(hotel);
     }

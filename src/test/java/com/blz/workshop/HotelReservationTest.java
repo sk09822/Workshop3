@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class HotelReservationTest {
@@ -40,5 +39,21 @@ public class HotelReservationTest {
         result.forEach((k, v) -> System.out.println(v.getName() + " " + k));
         assertNotNull(result);
     }
+    @Test
+    public void whenGivenHotelAdded_ShouldAddWeekendPrices() {
+        Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
+        Hotel hotel2 = new Hotel("Bridgewood", 160, 60, 110, 50, 4);
+        Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.add(hotel1);
+        hotelReservation.add(hotel2);
+        hotelReservation.add(hotel3);
+        List<Hotel> hotelList = hotelReservation.getHotelList();
+        boolean result = hotelList.get(0).getRegularWeekendRate() == 90 &&
+                hotelList.get(1).getRegularWeekendRate() == 60 &&
+                hotelList.get(2).getRegularWeekendRate() == 150;
+        assertTrue(result);
+    }
+
 }
 
