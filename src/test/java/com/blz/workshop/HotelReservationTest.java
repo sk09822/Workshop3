@@ -35,8 +35,8 @@ public class HotelReservationTest {
         hotelReservation.add(hotel1);
         hotelReservation.add(hotel2);
         hotelReservation.add(hotel3);
-        Map<Integer, Hotel> result = hotelReservation.searchFor("10Sep2020", "11Sep2020");
-        result.forEach((k, v) -> System.out.println(v.getName() + " " + k));
+        Map<Hotel, Integer> result = hotelReservation.searchFor("10Sep2020", "11Sep2020");
+        result.forEach((k, v) -> System.out.println(k.getName() + " " + v));
         assertNotNull(result);
     }
     @Test
@@ -54,6 +54,21 @@ public class HotelReservationTest {
                 hotelList.get(2).getRegularWeekendRate() == 150;
         assertTrue(result);
     }
-
+    @Test
+    public void whenGivenDateRangeShouldReturnCheapestHotels() //given date range should return cheapest hotels.
+    {
+        Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
+        Hotel hotel2 = new Hotel("Bridgewood", 150, 50, 110, 50, 4);
+        Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.add(hotel1);
+        hotelReservation.add(hotel2);
+        hotelReservation.add(hotel3);
+        Map<Hotel, Integer> result = hotelReservation.searchFor("11Sep2020", "12Sep2020");
+        result.forEach((k, v) -> System.out.println(k.getName() + " " + v));
+        assertNotNull(result);
+    }
 }
+
+
 
