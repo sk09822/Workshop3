@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class HotelReservationTest {
 
     @Test
-    public void whenHotelAdded_ToSystem_ShouldGetAdded() {
-        Hotel hotel1 = new Hotel("Lakeewood", 110, 90, 80, 80, 3);
+    public void whenHotel_AddedToSystem_ShouldGetAdded() {
+        Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
         Hotel hotel2 = new Hotel("Bridgewood", 160, 60, 110, 50, 4);
         Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
         Hotel[] hotelList = {hotel1, hotel2, hotel3};
@@ -27,7 +27,7 @@ public class HotelReservationTest {
     }
 
     @Test
-    public void whenGivenDateRangeShouldReturnCheapestHotel() {
+    public void whenGivenDateRange_ShouldReturn_CheapestHotel() {
         Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
         Hotel hotel2 = new Hotel("Bridgewood", 160, 60, 110, 50, 4);
         Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
@@ -39,6 +39,7 @@ public class HotelReservationTest {
         result.forEach((k, v) -> System.out.println(k.getName() + " " + v));
         assertNotNull(result);
     }
+
     @Test
     public void whenGivenHotelAdded_ShouldAddWeekendPrices() {
         Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
@@ -49,14 +50,13 @@ public class HotelReservationTest {
         hotelReservation.add(hotel2);
         hotelReservation.add(hotel3);
         List<Hotel> hotelList = hotelReservation.getHotelList();
-        boolean result = hotelList.get(0).getRegularWeekendRate() == 90 &&
-                hotelList.get(1).getRegularWeekendRate() == 60 &&
-                hotelList.get(2).getRegularWeekendRate() == 150;
+        boolean result = hotelList.get(0).getRegularWeekendRate() == 90
+                && hotelList.get(1).getRegularWeekendRate() == 60 && hotelList.get(2).getRegularWeekendRate() == 150;
         assertTrue(result);
     }
+
     @Test
-    public void whenGivenDateRangeShouldReturnCheapestHotels() //given date range should return cheapest hotels.
-    {
+    public void whenGivenDateRange_ShouldReturn_CheapestHotels() {
         Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
         Hotel hotel2 = new Hotel("Bridgewood", 150, 50, 110, 50, 4);
         Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
@@ -68,9 +68,9 @@ public class HotelReservationTest {
         result.forEach((k, v) -> System.out.println(k.getName() + " " + v));
         assertNotNull(result);
     }
+
     @Test
-    public void whenHotelAddedToSystemRatingShouldGetAdded() // rating to the hotel.
-    {
+    public void whenHotelAdded_ToSystemRatingShould_GetAdded() {
         Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
         Hotel hotel2 = new Hotel("Bridgewood", 160, 60, 110, 50, 4);
         Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
@@ -83,8 +83,20 @@ public class HotelReservationTest {
                 && hotelList.get(2).getRating() == 5;
         assertTrue(result);
     }
+
+    @Test
+    public void whenGivenDateRange_ShouldReturn_CheapestBestRatedHotels() // cheapest best rated hotels.
+    {
+        Hotel hotel1 = new Hotel("Lakewood", 110, 90, 80, 80, 3);
+        Hotel hotel2 = new Hotel("Bridgewood", 150, 50, 110, 50, 4);
+        Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 100, 40, 5);
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.add(hotel1);
+        hotelReservation.add(hotel2);
+        hotelReservation.add(hotel3);
+        Map<Hotel, Integer> result = hotelReservation.getCheapestAndBestRatedHotels("11Sep2020", "12Sep2020");
+        result.forEach(
+                (k, v) -> System.out.println(k.getName() + ", Rating : " + k.getRating() + " and Total Rate " + v));
+        assertNotNull(result);
+    }
 }
-
-
-
-

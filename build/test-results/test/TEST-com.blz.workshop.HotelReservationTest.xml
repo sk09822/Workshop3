@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.blz.workshop.HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-16T11:24:44" hostname="DESKTOP-DN56027" time="0.044">
+<testsuite name="com.blz.workshop.HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-16T11:32:44" hostname="DESKTOP-DN56027" time="0.072">
   <properties/>
-  <testcase name="whenHotelAddedToSystemRatingShouldGetAdded()" classname="com.blz.workshop.HotelReservationTest" time="0.044"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="whenGivenDateRange_ShouldReturn_CheapestBestRatedHotels()" classname="com.blz.workshop.HotelReservationTest" time="0.072"/>
+  <system-out><![CDATA[Bridgewood, Rating : 4 and Total Rate 200
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -77,6 +77,18 @@ public class HotelReservation {
             return weekDays;
         }
 
+        public Map<Hotel, Integer> getCheapestAndBestRatedHotels(String date1, String date2) {
+            Map<Hotel, Integer> bestHotels = new HashMap<Hotel, Integer>();
+            Map<Hotel, Integer> cheapestHotels = searchFor(date1, date2);
+            int highestRating = (cheapestHotels.keySet().stream().max(Comparator.comparingInt(Hotel::getRating)).get())
+                    .getRating();
+            cheapestHotels.forEach((k, v) -> {
+                if (k.getRating() == highestRating)
+                    bestHotels.put(k, v);
+            });
+            return bestHotels;
+        }
+
         public LocalDate toLocalDate(String date) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyy");
             LocalDate localDate = LocalDate.parse(date, formatter);
